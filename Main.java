@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import array.BasicArray;
 import numbers.NumberOperations;
 import string.*;
 
@@ -34,21 +35,31 @@ public class Main {
 
     */
 
-     // number oprations
-     NumberOperations numOP = new NumberOperations();
-    //  int revNum = numOP.reverseNumber(n);
-    //  System.out.println("Reverse Number: "+ revNum);
-    //numOP.ispallindrom(n);
-    // long fac = numOP.factorial(n);
-    // System.out.println("Factorial of "+ n + " is : "+fac);
+     // Number oprations
+     /* NumberOperations numOP = new NumberOperations();
+     int revNum = numOP.reverseNumber(n);
+     System.out.println("Reverse Number: "+ revNum);
+     numOP.ispallindrom(n);
+     long fac = numOP.factorial(n);
+     System.out.println("Factorial of "+ n + " is : "+fac);
 
-    // numOP.fibonacciSeries(n);
-        Map<Integer, Integer> memo = new HashMap<>();
+     numOP.fibonacciSeries(n);
+     Map<Integer, Integer> memo = new HashMap<>();
 
-        for (int i = 0; i < n; i++) {
-            System.out.print(numOP.fibonacciMemo(i, memo) + " ");
-        }
+     for (int i = 0; i < n; i++) {
+        System.out.print(numOP.fibonacciMemo(i, memo) + " ");
+     }
 
+     */
+    
+    // Basic Array operations 
+    BasicArray arr = new BasicArray();
+   // arr.createAnArray(n);
+   // arr.sortAnArray(n);
+
+   //arr.compareAnArray(n);
+
+   arr.binarySearch(n);
 
 
     sc.close();
