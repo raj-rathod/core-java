@@ -1,99 +1,52 @@
 package string;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StringManupulation {
-    public void frequencyCheckOfCharacters(String str){
-        LinkedHashMap<Character, Integer> freq = new LinkedHashMap<>();
-
-        for(char ch: str.toCharArray()){
-            if(ch != ' '){
-              freq.put(ch, freq.getOrDefault(ch,0)+1);
-            }
-        }
-
-        System.out.println("Map"+ freq);
+    public void findLongestWord(String str){
+        List<String> list = Arrays.asList(str.split(" "));
+        System.out.println(list);
+        String word = list.stream().max(Comparator.comparingInt(String::length)).orElse("Not found");
+        System.out.println(word);
     }
 
-    public void frequencyCountUsingStream(String str){
-        LinkedHashMap<Character, Long> freq = str.chars()
-                                       .mapToObj(ch-> (char)ch)
-                                       .collect(Collectors.groupingBy(ch->ch, LinkedHashMap::new, Collectors.counting()));
-        System.out.println("Map"+ freq);
+    public void findNonRepeatingCharacter(String str){
+        String nonRepeatingStr = Arrays.asList(str.split("")).stream()
+        .collect(Collectors.groupingBy(c->c, LinkedHashMap::new, Collectors.counting()))
+        .entrySet()
+        .stream()
+        .filter(s -> s.getValue()==1)
+        .map(Map.Entry::getKey)
+        .findFirst()
+        .orElse("Not found");
+
+        System.out.println(nonRepeatingStr);
     }
 
-    public void titleCase(String str){
-        StringBuilder titleCase = new StringBuilder();
-        for(String word: str.split(" ")){
-            if(word.length()>=1){
-                titleCase.append(Character.toUpperCase(word.charAt(0)))
-                .append(word.substring(1).toLowerCase())
-                .append(" ");
-            }
-        }
-
-        String titlecaseStr = titleCase.toString().trim();
-        System.out.println("Without stream: "+ titlecaseStr);
-
-        String steamTitleCase = Arrays.asList(str.split(" ")).stream()
-                                .map( word -> Character.toUpperCase(word.charAt(0)) + word.substring(1) )
-                                .collect(Collectors.joining(" "));
-       System.out.println("Using Stream : "+ steamTitleCase);
+    public void reverseAString(String str){
+        String reversedStr = Stream.of(str.split("")).reduce("",(a,b)->b+a);
+        System.out.println(reversedStr);
     }
 
-    public void firstNonRepeatingChar(String str){
-        LinkedHashMap<Character, Integer> freq = new LinkedHashMap<>();
-        for(char ch: str.toCharArray()){
-            if(ch != ' '){
-              freq.put(ch, freq.getOrDefault(ch,0)+1);
-            }
-        }
 
-       char c =  freq.entrySet()
-       .stream()
-       .filter(ch -> ch.getValue() ==1 )
-       .map(ch-> ch.getKey())
-       .findFirst()
-       .orElse(null);
-       System.out.println("Non-repeating character is : "+ c);
+    public void mostRepeatedCharacter(String str){
+        String mostRepeat = Arrays.asList(str.split(""))
+        .stream()
+        .collect(Collectors.groupingBy(c->c, Collectors.counting()))
+        .entrySet()
+        .stream()
+        .max(Comparator.comparingLong(c-> c.getValue()))
+        .map(Map.Entry::getKey)
+        .orElse("not found");
 
-       char finalChar = str.chars()
-                        .mapToObj(ch-> (char)ch)
-                        .collect(Collectors.groupingBy(ch->ch, LinkedHashMap::new, Collectors.counting()))
-                        .entrySet()
-                        .stream()
-                        .filter(ch-> ch.getValue() == 1)
-                        .map(ch-> ch.getKey())
-                        .findFirst()
-                        .orElse(' ');
-        System.out.println("With Stream first non repeating character : "+ finalChar);
-
-    }
-
-    public void isPallindrom(String str){
-        boolean isPallindrom = str.equals(new StringBuilder(str).reverse().toString());
-        System.out.println("Is String Pallindrom: "+ isPallindrom);
-    }
-
-    public void isAnagram(String str1, String str2){
-        if(str1.length() != str2.length()){
-            System.out.println("Not aa anagram");
-        }else{
-            boolean isAnagram = str1.chars().sorted().boxed().collect(Collectors.toList()).equals(
-                str2.chars().sorted().boxed().collect(Collectors.toList())
-            );
-
-            System.out.println("Given string is the anagram: "+ isAnagram);
-        }
-    }
-
-    public void maxAccuranceCharcater(String str){
-        char ch = str.chars().mapToObj(c-> (char)c).collect(Collectors.groupingBy(c->c, Collectors.counting()))
-        .entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
-
-        System.out.println("Max Occurance character is: "+ ch);
+        System.out.println(mostRepeat);
+        
+    
     }
 }

@@ -7,7 +7,7 @@ abstract class InnerComputer {
 }
 
 public class Computer extends InnerComputer {
-
+     public String name = "Rajesh";
      public void showCpu() {
       System.out.println("Computer cpu");
     }
@@ -19,5 +19,9 @@ public class Computer extends InnerComputer {
    public  void showStorage(int hdd) {
       System.out.println("Storaeg : "+ hdd + "GB");
     }
+
+  public void display(){
+      System.out.println("This is computer belong to : "+ this.name );
+  }
     
 }
