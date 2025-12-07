@@ -1,18 +1,14 @@
-import string.StringInterview;
+import thread.EvenOddPrinter;
 
 public class Main {
     public static void main(String[] arg) {
-        System.out.println("Pragram start from here ---- !");
-        StringInterview strObj = new StringInterview();
+     EvenOddPrinter printer = new EvenOddPrinter(20);
 
-        strObj.checkIsAnagram("silent", "listen");
-        strObj.isStringIsogram("helo");
-        strObj.findUniqueCharacter("success");
-        strObj.findFirstNonRepeatingCharacter("swiss");
-        strObj.convertStringToCamelCase("my name is Rajesh rathore from delhi");
-        strObj.countWords("my name is rajesh");
-        strObj.removeDuplicates("bcabc");
-        strObj.mostRepeatingCharacter("apple");
-        strObj.findLargestWordInString("java makes coding enjayable and challenging");
+        Thread oddThread = new Thread(() -> printer.printOdd());
+        Thread evenThread = new Thread(() -> printer.printEven());
+
+        oddThread.start();
+        evenThread.start();
+      
     }
 }
