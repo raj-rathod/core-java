@@ -53,5 +53,10 @@ public class NumberOperations {
     }
 
 
+    public boolean isEven(int n){
+        return (n & 1) == 0;
+    }
+
+
 
 }
