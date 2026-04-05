@@ -14,6 +14,18 @@ public class Employee {
         this.department = department;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
+    public Double getSalary(){
+        return this.salary;
+    }
+
+    public String getDeparment(){
+        return this.department;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
