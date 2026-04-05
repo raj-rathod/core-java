@@ -1,9 +1,14 @@
-import numbers.NumberOperations;
+
+import oops.notification_system.*;
 
 public class Main {
     public static void main(String[] arg) {
-      NumberOperations nbObj = new NumberOperations();
-      System.out.println(nbObj.isEven(5));
+       Notification notification = new PushNotification();
 
+       NotificationService notificationService = new NotificationService(notification);
+
+       notificationService.sendNotification("Hello World!");
     }
+
+  
 }
