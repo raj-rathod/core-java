@@ -1,13 +1,17 @@
-
-import oops.notification_system.*;
+import string.StringPractice;
 
 public class Main {
     public static void main(String[] arg) {
-       Notification notification = new PushNotification();
+       StringPractice strObj = new StringPractice();
+       //strObj.reverseAString("hello world!");
 
-       NotificationService notificationService = new NotificationService(notification);
+       //strObj.checkPalindrome("rama");
+       //strObj.countVowelsAndConsonants("Rajesh");
+       //strObj.countFrequencyOfChar("banana", 'a');
 
-       notificationService.sendNotification("Hello World!");
+       //strObj.removeSpaces("Hello World !");
+
+       strObj.firstNonRepeatingChar("aabbccddee");
     }
 
   
