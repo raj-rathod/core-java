@@ -381,4 +381,17 @@ public class StreamAssignment {
         System.out.println("Non Repeating Character: "+ ch);
     }
 
+    public void Task15(){
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 10);
+        map.put("B", 4);
+        map.put("C", 30);
+
+        Map<String, Integer> result = map.entrySet().stream()
+        .sorted(Map.Entry.comparingByValue())
+        .collect(Collectors.toMap(entry -> entry.getKey(), entry -> entry.getValue(),(e1, e2) -> e1, // merge function (important)
+            LinkedHashMap::new));
+
+        System.out.println("Sorted map: "+ result);
+    }
 }
