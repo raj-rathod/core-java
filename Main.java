@@ -1,18 +1,17 @@
-import string.StringPractice;
+import pattern.Patterns;
 
 public class Main {
     public static void main(String[] arg) {
-       StringPractice strObj = new StringPractice();
-       //strObj.reverseAString("hello world!");
+        Patterns obj = new Patterns();
 
-       //strObj.checkPalindrome("rama");
-       //strObj.countVowelsAndConsonants("Rajesh");
-       //strObj.countFrequencyOfChar("banana", 'a');
-
-       //strObj.removeSpaces("Hello World !");
-
-       strObj.firstNonRepeatingChar("aabbccddee");
+        obj.pyramid(5);
+        obj.invertedPyramid(5);
+        System.out.println("///////");
+        obj.squarePattern(5);
+        obj.rightAngleTriangle(8);
+        obj.invertedTriangle(5);
+        obj.hollowSqure(10);
+        
     }
-
   
 }
