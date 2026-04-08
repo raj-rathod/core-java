@@ -102,4 +102,67 @@ public class StringPractice {
          () -> System.out.println("All Characters are duplicate") 
         );
     }
+
+    // 7. Check anagram
+
+    public boolean isAnagram(String str1, String str2){
+        if(str1.length() != str2.length()) {
+            return false;
+        }
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        int[] freq = new int[26];
+        for(int i =0; i< str1.length();i++){
+            freq[str1.charAt(i)-'a']++;
+            freq[str2.charAt(i)-'a']--;
+        }
+
+        for(int count:freq){
+            if(count != 0){
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
+    //8. generate all substrings 
+
+    public void generateSubstrings(String str){
+       for(int i = 0; i<str.length();i++){
+        for(int j = i; j<=str.length();j++){
+            System.out.print(str.substring(i,j)+" ");
+        }
+        System.out.println();
+       }
+    }
+
+    // 9. find longest word in the sentence
+
+    public void findLongestWord(String str){
+        String[] words = str.split(" ");
+        String maxLengthWord = "";
+        for(String word: words){
+            if(maxLengthWord.length() < word.length()){
+                maxLengthWord = word;
+            }
+        }
+
+        System.out.println("Longest word : "+ maxLengthWord);
+    }
+
+    // 10. remove duplicates
+
+    public void removeDuplicates(String str){
+        Set<Character> set = new HashSet<>();
+         StringBuilder sb = new StringBuilder();
+        for(int i = 0; i<str.length();i++){
+           if(set.add(str.charAt(i))){
+               sb.append(str.charAt(i));
+           }
+        }
+
+        System.out.println("Remove duplicate characters from " + str +" : "+ sb.toString());
+    }
 }
