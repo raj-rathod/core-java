@@ -1,3 +1,4 @@
+import numbers.NumberOperations;
 import string.StringPractice;
 
 public class Main {
@@ -6,7 +7,13 @@ public class Main {
         //System.out.println("Strings are anagram ? "+ obj.isAnagram("silent", "listene"));
         //obj.generateSubstrings("abcd");
         //obj.findLongestWord("java is the powerful language");
-        obj.removeDuplicates("programming");
+        //obj.removeDuplicates("programming");
+
+        NumberOperations numObj = new NumberOperations();
+        // numObj.printPrimes(13);
+        // numObj.printPrimes(13);
+
+        numObj.findGCDAndLCM(10,12);
     }
   
 }

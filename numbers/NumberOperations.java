@@ -1,5 +1,6 @@
 package numbers;
 
+import java.math.BigInteger;
 import java.util.Map;
 
 public class NumberOperations {
@@ -55,6 +56,59 @@ public class NumberOperations {
 
     public boolean isEven(int n){
         return (n & 1) == 0;
+    }
+
+
+    public boolean isPrime(int n){
+        if(n<= 1){
+            return false;
+        }
+        for(int i=2; i*i<=n;i++){
+            if(n%i == 0){
+                return false;
+            }
+           
+        }
+        return true;
+    }
+    // time = O(n*ROOT(n))
+    // space = O(1)
+    public void printPrimes(int n){
+        for(int i=2;i<=n;i++){
+            if(isPrime(i)){
+                System.out.print(i+ " ");
+            }
+        }
+    }
+    // time = O(log(log(n)))
+    // space = O(N) due to isPrime Array
+    public void printPrimesSieve(int n){
+        boolean[] isPrime = new boolean[n+1];
+        for(int i=2; i<=n; i++){
+            isPrime[i] = true;
+        }
+
+        for(int i=2; i*i <= n; i++){
+            if(isPrime[i]){
+                for(int j = i*i; j<=n; j+= i){
+                    isPrime[j] = false;
+                }
+            }
+        }
+
+        for(int i=2;i<=n; i++){
+            if(isPrime[i]){
+                System.out.print(i+ " ");
+            }
+        }
+    }
+
+
+    public void findGCDAndLCM(int a, int b){
+        int gcd = BigInteger.valueOf(a).gcd(BigInteger.valueOf(b)).intValue();
+        int lcm = (a*b)/gcd;
+        System.out.println("GCD of "+ a +", "+b+" : "+ gcd);
+        System.out.println("LCM of "+ a +", "+b+" : "+ lcm);
     }
 
 
