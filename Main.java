@@ -1,19 +1,12 @@
+import java.util.List;
+
 import numbers.NumberOperations;
-import string.StringPractice;
 
 public class Main {
     public static void main(String[] arg) {
-        StringPractice obj = new StringPractice();
-        //System.out.println("Strings are anagram ? "+ obj.isAnagram("silent", "listene"));
-        //obj.generateSubstrings("abcd");
-        //obj.findLongestWord("java is the powerful language");
-        //obj.removeDuplicates("programming");
-
-        NumberOperations numObj = new NumberOperations();
-        // numObj.printPrimes(13);
-        // numObj.printPrimes(13);
-
-        numObj.findGCDAndLCM(10,12);
+       NumberOperations numObj = new NumberOperations();
+       List<Integer> divisorsList = numObj.findAllDivisors(36);
+       System.out.println("Divisors of " +36+ " : "+ divisorsList);
     }
   
 }
