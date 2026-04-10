@@ -1,6 +1,8 @@
 package numbers;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class NumberOperations {
@@ -109,6 +111,21 @@ public class NumberOperations {
         int lcm = (a*b)/gcd;
         System.out.println("GCD of "+ a +", "+b+" : "+ gcd);
         System.out.println("LCM of "+ a +", "+b+" : "+ lcm);
+    }
+
+    public List<Integer> findAllDivisors(int n){
+        List<Integer> list = new ArrayList<>();
+        for(int i = 1; i*i <=n; i++){
+            if(n%i ==0){
+                if(n/i == i){
+                    list.add(i);
+                }else{
+                    list.add(i);
+                    list.add(n/i);
+                }
+            }
+        }
+        return list;
     }
 
 
