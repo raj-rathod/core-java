@@ -14,4 +14,13 @@ public class MapOperations {
         System.out.println(sortedMap);
     }
 
+    public void sortMapBasedOnKey(Map<String, Integer> map){
+        Map<String, Integer> sortedMap = map.entrySet().stream()
+        .sorted(
+            Map.Entry.comparingByKey()
+        ).collect(LinkedHashMap:: new, (m,e) -> m.put(e.getKey(), e.getValue()), Map::putAll);
+
+        System.out.println(sortedMap);
+    }
+
 }
