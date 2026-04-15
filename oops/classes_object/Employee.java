@@ -1,6 +1,6 @@
 package oops.classes_object;
 
-public class Employee {
+public class Employee  {
 
     private int id;
     public String name;
@@ -35,4 +35,5 @@ public class Employee {
                 ", department='" + department + '\'' +
                 '}';
     }
+
 }

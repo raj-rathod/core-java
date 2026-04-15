@@ -12,14 +12,12 @@ public class ExcepectionHandling {
         }
     }
 
-
     public void addToCart(int n) throws OutOfStackException{
         if(n>4){
             throw new OutOfStackException(n +" Items not available now only "+ (n-2) + " Available");
         }
         System.out.println(n+ "Items added to the cart!");
     }
-
 
     public boolean isMailValid(String mail){
         if(mail == null || mail.length()<5){
