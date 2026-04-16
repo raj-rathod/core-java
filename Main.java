@@ -1,10 +1,10 @@
-import dsa.JosephusProblem;
+import collections.fail_fast_fail_safe.FailFastAndFailSafe;
 
 public class Main {
     public static void main(String[] arg) {
-        JosephusProblem obj = new JosephusProblem();
-
-        obj.lastSurvivalInCircle(19,3);
+       FailFastAndFailSafe obj = new FailFastAndFailSafe();
+       obj.failFast();
+       obj.failSafe();
     }
 
 
