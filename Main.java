@@ -1,23 +1,19 @@
-import collections.fail_fast_fail_safe.FailFastAndFailSafe;
-import collections.list.CreationOfList;
-import collections.map.TreeMapPractice;
-import collections.set.SetPractice;
+import string.StringPractice;
+import thread.ThreadPractice;
 
 public class Main {
     public static void main(String[] arg) {
-    //    FailFastAndFailSafe obj = new FailFastAndFailSafe();
-    //    obj.failFast();
-    //    obj.failSafe();
+        //ThreadPractice obj = new ThreadPractice();
+        //obj.printNumberInOrderAndReverse();
+        //obj.threadCounter();
+        //obj.printEvenOdd();
+        //obj.producerConsumer();
+        //obj.printSequenceUsingThreeThread();
 
-        //  CreationOfList obj = new CreationOfList();
-        //  obj.listMethodPractice();
-        //SetPractice obj = new SetPractice();
-        //obj.setMethodPractice();
-        //obj.treeSetMethods();
-
-        TreeMapPractice obj = new TreeMapPractice();
-
-        obj.sortByXor(30, 10);
+        StringPractice obj = new StringPractice();
+        //System.out.println("Longest substring length: "+ obj.lengthOfLongestSubStringWithoutRepeatChar("abcabcdefbsba"));
+        //System.out.println("Substring Count: "+ obj.countSubstringWithAtMostKDistinctChar("eceba",  2));
+        System.out.println("Longest Substring: "+ obj.longestSubStringWithKDisChar("eceba",2));
     }
 
 
