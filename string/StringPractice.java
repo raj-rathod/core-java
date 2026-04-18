@@ -165,4 +165,72 @@ public class StringPractice {
 
         System.out.println("Remove duplicate characters from " + str +" : "+ sb.toString());
     }
+
+    public String lengthOfLongestSubStringWithoutRepeatChar(String str){
+        Set<Character> set = new HashSet<>();
+        int left = 0;
+        int max = 0;
+        int start = 0;
+        for(int right = 0; right< str.length(); right++){
+            while(set.contains(str.charAt(right))){
+                set.remove(str.charAt(left));
+                left++;
+            }
+            set.add(str.charAt(right));
+            // max = Math.max(max, right-left+1);
+            if(right-left+1 > max){
+                max = right-left+1;
+                start = left;
+            }
+        }
+        //return max;
+        return str.substring(start, start+max);
+    }
+
+
+    public int countSubstringWithAtMostKDistinctChar(String str, int k){
+        Map<Character, Integer> map = new HashMap<>();
+        int left = 0, count = 0;
+
+        for(int right=0; right< str.length();right++){
+            map.put(str.charAt(right), map.getOrDefault(str.charAt(right), 0)+1);
+            while(map.size()>k){
+                char leftChar = str.charAt(left);
+                map.put(leftChar, map.get(leftChar)-1);
+                if(map.get(leftChar) == 0){
+                    map.remove(leftChar);
+                }
+                left++;
+            }
+            count+= right-left+1;
+        }
+        return count;
+    }
+
+
+    public String longestSubStringWithKDisChar(String str, int k){
+        Map<Character, Integer> map = new HashMap<>();
+        int max = 0, left = 0, start = 0;
+
+        for(int right=0; right < str.length(); right++){
+           map.put(str.charAt(right), map.getOrDefault(str.charAt(right), 0)+1);
+           while(map.size()>k){
+               char leftChar = str.charAt(left);
+               map.put(leftChar, map.get(leftChar)-1);
+               if(map.get(leftChar) == 0){
+                map.remove(leftChar);
+               }
+               left++;
+           }
+
+           if(right-left+1>max){
+                max = right-left+1;
+                start = left;
+           }
+        }
+
+        return str.substring(start, start+max);
+    }
+
+
 }
