@@ -129,7 +129,7 @@ public class ArrayInterview {
 
     }
 
-    public void findSubArrayOfGivenSum(int[] arr, int target){
+    public void findSubArrayOfGivenSum(int[] arr, int target){ // sliding window approach
         int sum = 0;
         int left = 0;
         boolean found = false;
@@ -178,7 +178,7 @@ public class ArrayInterview {
         System.out.println("Maximum subarray sum: "+ maxSum);
     }
 
-    public void findMaxSumSubarrayOfSizeK(int[] arr, int k){
+    public void findMaxSumSubarrayOfSizeK(int[] arr, int k){// fixed size sliding window
         int windowSum = 0;
         int maxSum = Integer.MIN_VALUE;
 

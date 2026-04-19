@@ -216,9 +216,4 @@ public class FlatMapPractice {
     System.out.println(result);
 }
 
-
-
-
-
-
 }

@@ -233,4 +233,41 @@ public class StringPractice {
     }
 
 
+    public String minWindowSubstring(String str, String match){
+        Map<Character, Integer> need = new HashMap<>();
+        Map<Character, Integer> window = new HashMap<>();
+        int start = 0, left = 0, required = 0, formed = 0;
+        int minLength = Integer.MAX_VALUE;
+
+        for(int i=0;i < match.length(); i++){
+            need.put(match.charAt(i), need.getOrDefault(match.charAt(i), 0)+1);
+        }
+        required = need.size();
+
+        for(int right = 0; right< str.length(); right++){
+            char ch = str.charAt(right);
+            window.put(ch, window.getOrDefault(ch, 0)+1);
+            if(need.containsKey(ch) && need.get(ch) == window.get(ch)){
+                formed++;
+            }
+            while(required == formed){
+                if(right-left+1 < minLength){
+                    minLength = right - left +1;
+                    start = left;
+                }
+                char leftChar = str.charAt(left);
+                window.put(leftChar, window.get(leftChar)-1);
+                if(need.containsKey(leftChar) && need.get(leftChar) > window.get(leftChar)){
+                   formed--;
+                }
+                left++;
+            }
+        }
+
+        return minLength == Integer.MAX_VALUE ? "" : str.substring(start, start+minLength);
+
+
+    }
+
+
 }
