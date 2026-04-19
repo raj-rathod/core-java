@@ -13,7 +13,9 @@ public class Main {
         StringPractice obj = new StringPractice();
         //System.out.println("Longest substring length: "+ obj.lengthOfLongestSubStringWithoutRepeatChar("abcabcdefbsba"));
         //System.out.println("Substring Count: "+ obj.countSubstringWithAtMostKDistinctChar("eceba",  2));
-        System.out.println("Longest Substring: "+ obj.longestSubStringWithKDisChar("eceba",2));
+        //System.out.println("Longest Substring: "+ obj.longestSubStringWithKDisChar("eceba",2));
+
+        System.out.println("minimun lrngth substring contains match:"+ obj.minWindowSubstring("ADOBECODEBANC", "ABC"));
     }
 
 
