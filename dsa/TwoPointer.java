@@ -33,4 +33,31 @@ public class TwoPointer {
 
         System.out.println("Traped Water: "+ max);
     }
+
+    public void moveAllZero(int[] arr){
+      int i = 0; 
+      for(int j=0; j<arr.length; j++){
+        if(arr[j] !=0){
+            arr[i] = arr[j];
+            i++;
+        }
+      }
+      for(int k = 0; k < i;k++){
+        System.out.print(arr[k]+" ");
+      }
+    }
+
+
+    public void removeDuplicatesFromSortedArray(int[] arr){
+       int i = 0; 
+      for(int j=1; j<arr.length; j++){
+        if(arr[j] !=arr[i]){
+            i++;
+            arr[i] = arr[j];
+        }
+      }
+      for(int k = 0; k < i+1;k++){
+        System.out.print(arr[k]+" ");
+      }
+    }
 }
