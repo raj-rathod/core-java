@@ -1,4 +1,4 @@
-package array;
+package dsa;
 
 import java.util.*;
 import java.util.stream.*;
@@ -285,7 +285,7 @@ public class ArrayInterview {
     }
 
 
-    public void removeDuplicates(int arr[]){
+    public void removeDuplicates(int arr[]){// two pointer approach
         int n = arr.length;
         int i = 0;
         for(int j=1; j<n; j++){
@@ -325,6 +325,34 @@ public class ArrayInterview {
         }
 
         System.out.println("Longest sequence length: "+ longest);
+    }
+
+
+    public void findMajorityElement(int[] arr){
+      int count = 0; 
+      int condidate = 0;
+      for(int i=0; i<arr.length; i++){
+        if(count == 0){
+            condidate = arr[i];
+        }
+
+        if(arr[i] == condidate){
+            count++;
+        }else{
+            count--;
+        }
+      }
+
+      count = 0;
+      for(int el: arr){
+        if(el == condidate){
+            count++;
+        }
+      }
+
+      condidate = count > (arr.length/2)? condidate: -1;
+      System.out.println("Majority Element is: "+ condidate);
+      
     }
 
 
