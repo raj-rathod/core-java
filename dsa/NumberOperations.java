@@ -1,4 +1,4 @@
-package numbers;
+package dsa;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
