@@ -23,7 +23,6 @@ public class TwoPointer {
         while(left < right){
             int area = Math.min(height[left], height[right])*(right-left);
             max = Math.max(area, max);
-            System.out.println(area);
             if(height[left]< height[right]){
                 left++;
             }else{
