@@ -269,5 +269,15 @@ public class StringPractice {
 
     }
 
+    public void minLengthString(){
+        List<String> data = Arrays.asList("abc", "bcd","anbvh","trh","jjykyj");
+
+        String minLengthStr = data.stream().min(Comparator.comparingInt(String:: length)).orElse(null);
+        int minLength = minLengthStr.length();
+        List<String> result = data.stream().filter(str -> str.length() == minLength).toList();
+        System.out.println(result);
+
+    }
+
 
 }
