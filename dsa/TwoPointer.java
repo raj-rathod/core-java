@@ -1,5 +1,7 @@
 package dsa;
 
+import Helper.Helper;
+
 public class TwoPointer {
     public void twoSumSortedArray(int[] arr, int target){
         int sum = 0, left = 0, right = arr.length-1;
@@ -58,5 +60,22 @@ public class TwoPointer {
       for(int k = 0; k < i+1;k++){
         System.out.print(arr[k]+" ");
       }
+    }
+
+    public void nextGreaterPermutation(int[] nums){
+        int n = nums.length;
+        int i = n-2;
+        while(i>=0 && (nums[i]>= nums[i+1])){
+            i--;
+        }
+        if(i>=0){
+            int j = n-1;
+            while(nums[j]<= nums[i]){
+                j--;
+            }
+            Helper.swap(nums, i,j);
+        }
+        int start = i+1; int end = n-1;
+        Helper.reverse(nums, start, end);
     }
 }

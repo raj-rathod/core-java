@@ -60,6 +60,11 @@ public class NumberOperations {
         return (n & 1) == 0;
     }
 
+    public boolean isPowerOfTwo(int n){
+        if(n<=0) return false;
+        return (n & (n-1)) == 0 ? true: false;
+    }
+
 
     public boolean isPrime(int n){
         if(n<= 1){
@@ -126,6 +131,21 @@ public class NumberOperations {
             }
         }
         return list;
+    }
+
+    public String intToRomanNumber(int n){
+        int[] list = {1000,900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] listRoman = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<list.length;i++){
+            while(n>=list[i]){
+                n -= list[i];
+                sb.append(listRoman[i]);
+            }
+        }
+
+        return sb.toString();
+
     }
 
 

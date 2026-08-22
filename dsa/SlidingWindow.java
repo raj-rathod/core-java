@@ -10,7 +10,7 @@ import java.util.Queue;
 import java.util.Set;
 
 public class SlidingWindow {
-    public void longestSubStringWithoutRepeatChar(String str){
+    public void longestSubStringWithoutRepeatChar(String str){ // sliding window with shrink
         int left = 0;
         int maxLength = 0, start = 0;
 

@@ -15,7 +15,7 @@ public class ArrayInterview {
             int temp = arr[start];
             arr[start] = arr[end];
             arr[end] = temp;
-            start++;
+            start++; 
             end--;
         }
     }
@@ -306,7 +306,7 @@ public class ArrayInterview {
         System.out.println("Removed using stream "+ list);
     }
 
-
+   // using sorting
     public void longestConsecutiveSequence(int arr[]){
         if(arr.length == 0){
             System.out.println("Array is empty");
@@ -323,6 +323,33 @@ public class ArrayInterview {
                 currentStreak = 1;
             }
         }
+
+        System.out.println("Longest sequence length: "+ longest);
+    }
+    // without sorting 
+    public void longestConsecutiveSequenceWithoutSort(int arr[]){
+        if(arr.length == 0){
+            System.out.println("Array is empty");
+        }
+        
+        int longest = 0;
+        Set<Integer> set = new HashSet<>();
+        for(int el:arr){
+            set.add(el);
+        }
+
+        for(int el:set){
+            if(!set.contains(el-1)){
+                int count = 1;
+                int current = el;
+                while(set.contains(current+1)){
+                    count++;
+                    current++;
+                }
+                longest = Math.max(longest, count);
+            }
+        }
+        
 
         System.out.println("Longest sequence length: "+ longest);
     }
