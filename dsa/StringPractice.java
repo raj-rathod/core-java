@@ -279,5 +279,32 @@ public class StringPractice {
 
     }
 
+    // String str = "My name is Rajesh Rathore"; reverse this without using split method;
+
+    public void reverseWordInSentence(){
+        String str = "My name is Rajesh Rathore";
+        int end = str.length()-1;
+        StringBuilder sb = new StringBuilder();
+        while(end>=0){
+            while(end>=0 && str.charAt(end)== ' '){
+                end--;
+            }
+            if(end<0){
+                break;
+            }
+            int start = end;
+            while(start>=0 && str.charAt(start)!= ' '){
+                start--;
+            }
+            sb.append(str.substring(start+1, end+1));
+
+            if(start>0){
+                sb.append(" ");
+            }
+            end = start-1;
+        }
+        System.out.println(sb.toString());
+    }
+
 
 }

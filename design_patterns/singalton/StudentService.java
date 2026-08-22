@@ -2,6 +2,7 @@ package design_patterns.singalton;
 
 public class StudentService {
     private static volatile StudentService instance;
+    public int x = 0;
 
     private StudentService(){}
 

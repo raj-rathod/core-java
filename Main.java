@@ -1,24 +1,22 @@
-import collections.CollectionPractice;
-import dsa.BinarySearchPractice;
-import oops.overloading.Overloading;
+import dsa.TwoPointer;
+import system_design.cache.LRUCache;
 
 public class Main {
     public static void main(String[] arg) {
-        //CollectionPractice obj = new CollectionPractice();
-        int[] arr = {1,1,2,2,2,3,4,4,5};
-        //obj.frequencyRelated(arr);
-        //obj.removeDuplicates();
-        //obj.findIntersectionOfTwoList();
-        // String[] strs = new String[]{"eat","tea","tan","ate","nat","bat"};
-        // obj.findGroupOfAnagram(strs);
-
-        // Overloading overObj = new Overloading();
-        // double sum = overObj.add(10,10.0);
-
-        BinarySearchPractice obj = new BinarySearchPractice();
-        System.out.println("Last index of the 2 is: "+ obj.findLastIndex(arr, 2));
+        // TwoPointer twoPointer = new TwoPointer();
+        // int[] arr = {3,2,9,8,7,1};
+        // twoPointer.nextGreaterPermutation(arr);
+        // for(int el:arr){
+        //     System.out.print(el +" ");
+        // }
+        LRUCache<Integer, String> cache = new LRUCache<>(3);
+        cache.put(1,"A");
+        cache.put(2,"B");
+        cache.put(3,"C");
+        System.out.println(cache);
+        cache.get(1);
+        System.out.println(cache);
+        cache.put(4,"D");
+        System.out.println(cache);
     }
-
-
-  
 }
